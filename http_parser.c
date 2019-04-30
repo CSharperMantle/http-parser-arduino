@@ -975,10 +975,10 @@ reexecute:
           ; /* nada */
         } else if ((ch >= 'A' && ch <= 'Z') || ch == '-') {
         	int processed_ch = parser->method << 16 | parser->index << 8 | ch;
-            #define IF_XX(meth, pos, ch, new_meth) \
-                if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
-            #define ELSE_IF_XX(meth, pos, ch, new_meth) \
-                else if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
+#define IF_XX(meth, pos, ch, new_meth) \
+    if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
+#define ELSE_IF_XX(meth, pos, ch, new_meth) \
+    else if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
 
             IF_XX(POST,      1, 'U', PUT)
             ELSE_IF_XX(POST,      1, 'A', PATCH)
