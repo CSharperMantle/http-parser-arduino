@@ -976,34 +976,36 @@ reexecute:
         } else if ((ch >= 'A' && ch <= 'Z') || ch == '-') {
 
           switch (parser->method << 16 | parser->index << 8 | ch) {
-#define XX(meth, pos, ch, new_meth) \
-            case (HTTP_##meth << 16 | pos << 8 | ch): \
-              parser->method = HTTP_##new_meth; break;
+#define XXXX_ELSE(meth, pos, ch, new_meth) \
+            else if ((parser->method << 16 | parser->index << 8 | ch) == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
+#define XXXX_NO_ELSE(meth, pos, ch, new_meth) \
+            if ((parser->method << 16 | parser->index << 8 | ch) == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
 
-            XX(POST,      1, 'U', PUT)
-            XX(POST,      1, 'A', PATCH)
-            XX(POST,      1, 'R', PROPFIND)
-            XX(PUT,       2, 'R', PURGE)
-            XX(CONNECT,   1, 'H', CHECKOUT)
-            XX(CONNECT,   2, 'P', COPY)
-            XX(MKCOL,     1, 'O', MOVE)
-            XX(MKCOL,     1, 'E', MERGE)
-            XX(MKCOL,     1, '-', MSEARCH)
-            XX(MKCOL,     2, 'A', MKACTIVITY)
-            XX(MKCOL,     3, 'A', MKCALENDAR)
-            XX(SUBSCRIBE, 1, 'E', SEARCH)
-            XX(SUBSCRIBE, 1, 'O', SOURCE)
-            XX(REPORT,    2, 'B', REBIND)
-            XX(PROPFIND,  4, 'P', PROPPATCH)
-            XX(LOCK,      1, 'I', LINK)
-            XX(UNLOCK,    2, 'S', UNSUBSCRIBE)
-            XX(UNLOCK,    2, 'B', UNBIND)
-            XX(UNLOCK,    3, 'I', UNLINK)
-#undef XX
-            default:
+            XXXX_NO_ELSE(POST,   1L, 'U', PUT)
+            XXXX_ELSE(POST,      1L, 'A', PATCH)
+            XXXX_ELSE(POST,      1L, 'R', PROPFIND)
+            XXXX_ELSE(PUT,       2L, 'R', PURGE)
+            XXXX_ELSE(CONNECT,   1L, 'H', CHECKOUT)
+            XXXX_ELSE(CONNECT,   2L, 'P', COPY)
+            XXXX_ELSE(MKCOL,     1L, 'O', MOVE)
+            XXXX_ELSE(MKCOL,     1L, 'E', MERGE)
+            XXXX_ELSE(MKCOL,     1L, '-', MSEARCH)
+            XXXX_ELSE(MKCOL,     2L, 'A', MKACTIVITY)
+            XXXX_ELSE(MKCOL,     3L, 'A', MKCALENDAR)
+            XXXX_ELSE(SUBSCRIBE, 1L, 'E', SEARCH)
+            XXXX_ELSE(SUBSCRIBE, 1L, 'O', SOURCE)
+            XXXX_ELSE(REPORT,    2L, 'B', REBIND)
+            XXXX_ELSE(PROPFIND,  4L, 'P', PROPPATCH)
+            XXXX_ELSE(LOCK,      1L, 'I', LINK)
+            XXXX_ELSE(UNLOCK,    2L, 'S', UNSUBSCRIBE)
+            XXXX_ELSE(UNLOCK,    2L, 'B', UNBIND)
+            XXXX_ELSE(UNLOCK,    3L, 'I', UNLINK)
+#undef XXXX_ELSE
+#undef XXXX_NO_ELSE
+            else {
               SET_ERRNO(HPE_INVALID_METHOD);
               goto error;
-          }
+            }
         } else {
           SET_ERRNO(HPE_INVALID_METHOD);
           goto error;
