@@ -28,3 +28,11 @@ parsertrace_g
 *.sdf
 *.vsp
 *.psess
+
+# Code::Blocks uglies
+*.cbp
+*.layout
+*.depend
+# generated directories
+bin/
+obj/

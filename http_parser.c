@@ -1006,6 +1006,7 @@ reexecute:
               SET_ERRNO(HPE_INVALID_METHOD);
               goto error;
             }
+          }
         } else {
           SET_ERRNO(HPE_INVALID_METHOD);
           goto error;
