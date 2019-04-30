@@ -974,39 +974,37 @@ reexecute:
         } else if (ch == matcher[parser->index]) {
           ; /* nada */
         } else if ((ch >= 'A' && ch <= 'Z') || ch == '-') {
+        	int processed_ch = parser->method << 16 | parser->index << 8 | ch;
+            #define IF_XX(meth, pos, ch, new_meth) \
+                if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
+            #define ELSE_IF_XX(meth, pos, ch, new_meth) \
+                else if (processed_ch == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
 
-          switch (parser->method << 16 | parser->index << 8 | ch) {
-#define XXXX_ELSE(meth, pos, ch, new_meth) \
-            else if ((parser->method << 16 | parser->index << 8 | ch) == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
-#define XXXX_NO_ELSE(meth, pos, ch, new_meth) \
-            if ((parser->method << 16 | parser->index << 8 | ch) == (HTTP_##meth << 16 | pos << 8 | ch)) { parser->method = HTTP_##new_meth; }
-
-            XXXX_NO_ELSE(POST,   1L, 'U', PUT)
-            XXXX_ELSE(POST,      1L, 'A', PATCH)
-            XXXX_ELSE(POST,      1L, 'R', PROPFIND)
-            XXXX_ELSE(PUT,       2L, 'R', PURGE)
-            XXXX_ELSE(CONNECT,   1L, 'H', CHECKOUT)
-            XXXX_ELSE(CONNECT,   2L, 'P', COPY)
-            XXXX_ELSE(MKCOL,     1L, 'O', MOVE)
-            XXXX_ELSE(MKCOL,     1L, 'E', MERGE)
-            XXXX_ELSE(MKCOL,     1L, '-', MSEARCH)
-            XXXX_ELSE(MKCOL,     2L, 'A', MKACTIVITY)
-            XXXX_ELSE(MKCOL,     3L, 'A', MKCALENDAR)
-            XXXX_ELSE(SUBSCRIBE, 1L, 'E', SEARCH)
-            XXXX_ELSE(SUBSCRIBE, 1L, 'O', SOURCE)
-            XXXX_ELSE(REPORT,    2L, 'B', REBIND)
-            XXXX_ELSE(PROPFIND,  4L, 'P', PROPPATCH)
-            XXXX_ELSE(LOCK,      1L, 'I', LINK)
-            XXXX_ELSE(UNLOCK,    2L, 'S', UNSUBSCRIBE)
-            XXXX_ELSE(UNLOCK,    2L, 'B', UNBIND)
-            XXXX_ELSE(UNLOCK,    3L, 'I', UNLINK)
-#undef XXXX_ELSE
-#undef XXXX_NO_ELSE
+            IF_XX(POST,      1, 'U', PUT)
+            ELSE_IF_XX(POST,      1, 'A', PATCH)
+            ELSE_IF_XX(POST,      1, 'R', PROPFIND)
+            ELSE_IF_XX(PUT,       2, 'R', PURGE)
+            ELSE_IF_XX(CONNECT,   1, 'H', CHECKOUT)
+            ELSE_IF_XX(CONNECT,   2, 'P', COPY)
+            ELSE_IF_XX(MKCOL,     1, 'O', MOVE)
+            ELSE_IF_XX(MKCOL,     1, 'E', MERGE)
+            ELSE_IF_XX(MKCOL,     1, '-', MSEARCH)
+            ELSE_IF_XX(MKCOL,     2, 'A', MKACTIVITY)
+            ELSE_IF_XX(MKCOL,     3, 'A', MKCALENDAR)
+            ELSE_IF_XX(SUBSCRIBE, 1, 'E', SEARCH)
+            ELSE_IF_XX(SUBSCRIBE, 1, 'O', SOURCE)
+            ELSE_IF_XX(REPORT,    2, 'B', REBIND)
+            ELSE_IF_XX(PROPFIND,  4, 'P', PROPPATCH)
+            ELSE_IF_XX(LOCK,      1, 'I', LINK)
+            ELSE_IF_XX(UNLOCK,    2, 'S', UNSUBSCRIBE)
+            ELSE_IF_XX(UNLOCK,    2, 'B', UNBIND)
+            ELSE_IF_XX(UNLOCK,    3, 'I', UNLINK)
+#undef IF_XX
+#undef ELSE_IF_XX
             else {
               SET_ERRNO(HPE_INVALID_METHOD);
               goto error;
             }
-          }
         } else {
           SET_ERRNO(HPE_INVALID_METHOD);
           goto error;
