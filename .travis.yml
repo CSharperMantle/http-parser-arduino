@@ -4,15 +4,8 @@ compiler:
   - clang
   - gcc
 
-before_install:
-  - sudo apt-get update -qq
-
-install:
-  - sudo apt-get install -qq gcc-avr
-
 script:
-  - "make Makefile.clang_gcc"
-  - "make Makefile.avrgcc"
+  - "make"
 
 notifications:
   email: false
