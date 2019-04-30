@@ -1,10 +1,11 @@
-HTTP Parser
+HTTP Parser for Arduino
 ===========
 
 [![Build Status](https://www.travis-ci.org/CSharperMantle/http-parser-arduino.svg?branch=master)](https://www.travis-ci.org/CSharperMantle/http-parser-arduino)
 
-This is a parser for HTTP messages written in C. It parses both requests and
-responses. The parser is designed to be used in performance HTTP
+This is a parser for HTTP messages written in C.
+Based on (http-parser)[https://github.com/nodejs/http-parser] by NodeJS contributors, it supports AVR SoC as well.
+It parses both requests and responses. The parser is designed to be used in performance HTTP
 applications. It does not make any syscalls nor allocations, it does not
 buffer data, it can be interrupted at anytime. Depending on your
 architecture, it only requires about 40 bytes of data per message
