@@ -6,6 +6,7 @@
 		"type": "git",
 		"url": "https://github.com/CSharperMantle/http-parser-arduino.git"
 	},
+	"version": "2.9.2",
 	"authors":
 	[
 		{
