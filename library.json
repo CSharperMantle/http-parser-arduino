@@ -4,20 +4,20 @@
 	"description": "HTTP request/response parser in C for Arduino",
 	"repositort": {
 		"type": "git",
-		"url": "https://github.com/CSharperMantle/http-parser-arduino.git",
+		"url": "https://github.com/CSharperMantle/http-parser-arduino.git"
 	},
 	"authors":
 	[
 		{
 			"name": "Node.js Foundation",
 			"email": "info@nodejs.org",
-			"url": "https://nodejs.org/",
+			"url": "https://nodejs.org/"
 		},
 		{
 			"name": "CSharperMantle",
 			"email": "mantlejonse@foxmail.com",
 			"url": "https://github.com/CSharperMantle",
-			"maintainer": true,
+			"maintainer": true
 		}
 	],
 	"license": "MIT",
@@ -27,11 +27,11 @@
 			"http_parser.c",
 			"http_parser.h",
 			"README.md",
-			"LICENSE-MIT",
+			"LICENSE-MIT"
 		]
 	},
 	"examples":
 	[
-		"[Cc]ontrib/*.c",
-	],
+		"[Cc]ontrib/*.c"
+	]
 }
