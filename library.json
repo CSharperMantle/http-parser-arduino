@@ -25,14 +25,11 @@
 	"export": {
 		"include":
 		[
+			"examples",
 			"http_parser.c",
 			"http_parser.h",
 			"README.md",
 			"LICENSE-MIT"
 		]
-	},
-	"examples":
-	[
-		"[Cc]ontrib/*.c"
-	]
+	}
 }
