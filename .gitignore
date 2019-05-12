@@ -26,6 +26,10 @@ tags
 *.cbp
 *.layout
 *.depend
+
 # generated directories
 bin/
 obj/
+
+# VSCode uglies
+.vscode/ipch
