@@ -23,15 +23,5 @@
 	],
 	"platforms": "*",
 	"frameworks": "*",
-	"license": "MIT",
-	"export": {
-		"include":
-		[
-			"examples/*/*",
-			"http_parser.c",
-			"http_parser.h",
-			"README.md",
-			"LICENSE-MIT"
-		]
-	}
+	"license": "MIT"
 }
