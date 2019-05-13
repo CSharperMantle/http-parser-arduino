@@ -27,7 +27,7 @@
 	"export": {
 		"include":
 		[
-			"examples/*",
+			"examples/*/*",
 			"http_parser.c",
 			"http_parser.h",
 			"README.md",
