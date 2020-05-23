@@ -1,7 +1,7 @@
 HTTP Parser for Arduino
 ===========
 
-[![Build Status](https://www.travis-ci.org/CSharperMantle/http-parser-arduino.svg?branch=master)](https://www.travis-ci.org/CSharperMantle/http-parser-arduino)
+[![Build Status](https://www.travis-ci.com/CSharperMantle/http-parser-arduino.svg?branch=master)](https://www.travis-ci.com/CSharperMantle/http-parser-arduino)
 
 This is a parser for HTTP messages written in C.
 Based on and keeps up-to-date with [http-parser](https://github.com/nodejs/http-parser) by Node.js contributors, it supports AVR SoC as well.
