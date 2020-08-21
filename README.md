@@ -6,9 +6,7 @@ HTTP Parser for Arduino
 This is a parser for HTTP messages written in C.
 Based on and keeps up-to-date with [http-parser](https://github.com/nodejs/http-parser) by Node.js contributors, it supports AVR SoC as well.
 It parses both requests and responses. The parser is designed to be used in performance HTTP
- in performance HTTP
->>>>>>> upstream/master
-applications. It does not make any syscalls nor allocations, it does not
+ in performance HTTP applications. It does not make any syscalls nor allocations, it does not
 buffer data, it can be interrupted at anytime. Depending on your
 architecture, it only requires about 40 bytes of data per message
 stream (in a web server that is per connection).
