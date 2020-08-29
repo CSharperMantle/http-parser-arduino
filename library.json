@@ -1,33 +1,26 @@
 {
-	"name": "http-parser-arduino",
-	"keywords": "http, parser, http-parser, web, ethernet, iot, processing, ",
-	"description": "HTTP request/response parser in C for Arduino and ANY OTHER C-compatible platform",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/CSharperMantle/http-parser-arduino.git"
-	},
-	"version": "2.9.4",
-	"authors":
-	[
-		{
-			"name": "Node.js Foundation",
-			"email": "info@nodejs.org",
-			"url": "https://nodejs.org/"
-		},
-		{
-			"name": "CSharperMantle",
-			"email": "mantlejonse@foxmail.com",
-			"url": "https://github.com/CSharperMantle",
-			"maintainer": true
-		}
-	],
-	"examples": [
-		"[Ee]xamples/*/*.c",
-    		"[Ee]xamples/*/*.cpp",
-    		"[Ee]xamples/*/*.ino",
-    		"[Ee]xamples/*/*.pde"
-	],
-	"platforms": "*",
-	"frameworks": "*",
-	"license": "MIT"
+    "name": "http-parser-arduino",
+    "keywords": "http, parser, http-parser, web, ethernet, iot, processing, ",
+    "description": "HTTP request/response parser in C for Arduino and ANY OTHER C-compatible platform",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CSharperMantle/http-parser-arduino.git"
+    },
+    "version": "2.9.4",
+    "authors": [
+        {
+            "name": "Node.js Foundation",
+            "email": "info@nodejs.org",
+            "url": "https://nodejs.org/"
+        },
+        {
+            "name": "CSharperMantle",
+            "email": "mantlejonse@foxmail.com",
+            "url": "https://github.com/CSharperMantle",
+            "maintainer": true
+        }
+    ],
+    "platforms": "*",
+    "frameworks": "*",
+    "license": "MIT"
 }
