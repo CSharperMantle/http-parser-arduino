@@ -22,5 +22,35 @@
     ],
     "platforms": "*",
     "frameworks": "*",
+    "examples": [
+        {
+            "name": "bench",
+            "base": "examples",
+            "files": [
+                "examples/bench/bench.c"
+            ]
+        },
+        {
+            "name": "test",
+            "base": "examples",
+            "files": [
+                "examples/test/test.c"
+            ]
+        },
+        {
+            "name": "parsertrace",
+            "base": "examples",
+            "files": [
+                "examples/parsertrace/parsertrace.c"
+            ]
+        },
+        {
+            "name": "url_parser",
+            "base": "examples",
+            "files": [
+                "examples/url_parser/url_parser.c"
+            ]
+        }
+    ],
     "license": "MIT"
 }

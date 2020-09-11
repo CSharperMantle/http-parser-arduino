@@ -1,0 +1,39 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+http_parser KEYWORD1
+http_parser_settings KEYWORD1
+http_parser_url KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+http_parser_init KEYWORD2
+http_parser_settings_init KEYWORD2
+http_parser_execute KEYWORD2
+http_should_keep_alive KEYWORD2
+http_method_str KEYWORD2
+http_status_str KEYWORD2
+http_errno_name KEYWORD2
+http_errno_description KEYWORD2
+http_parser_url_init KEYWORD2
+http_parser_parse_url KEYWORD2
+http_parser_pause KEYWORD2
+http_body_is_final KEYWORD2
+http_parser_set_max_header_size KEYWORD2
+
+######################################
+# Constants (LITERAL1)
+#######################################
+UF_SCHEMA LITERAL1
+UF_HOST LITERAL1
+UF_PORT LITERAL1
+UF_PATH LITERAL1
+UF_QUERY LITERAL1
+UF_FRAGMENT LITERAL1
+UF_USERINFO LITERAL1
+UF_MAX LITERAL1
