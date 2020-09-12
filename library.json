@@ -1,7 +1,7 @@
 {
     "name": "http-parser-arduino",
     "keywords": "http, parser, http-parser, web, ethernet, iot, processing, ",
-    "description": "HTTP request/response parser in C for Arduino and ANY OTHER C-compatible platform",
+    "description": "HTTP request/response parser in C for Arduino and other C-compatible platforms",
     "repository": {
         "type": "git",
         "url": "https://github.com/CSharperMantle/http-parser-arduino.git"
@@ -22,33 +22,40 @@
     ],
     "platforms": "*",
     "frameworks": "*",
+    "export": {
+        "include": [
+            "http_parser.[ch]",
+            "keywords.txt",
+            "examples/*/*.[ch]"
+        ]
+    },
     "examples": [
         {
             "name": "bench",
-            "base": "examples",
+            "base": "examples/bench",
             "files": [
-                "examples/bench/bench.c"
+                "bench.c"
             ]
         },
         {
             "name": "test",
-            "base": "examples",
+            "base": "examples/test",
             "files": [
-                "examples/test/test.c"
+                "test.c"
             ]
         },
         {
             "name": "parsertrace",
-            "base": "examples",
+            "base": "examples/parsertrace",
             "files": [
-                "examples/parsertrace/parsertrace.c"
+                "parsertrace.c"
             ]
         },
         {
             "name": "url_parser",
-            "base": "examples",
+            "base": "examples/url_parser",
             "files": [
-                "examples/url_parser/url_parser.c"
+                "url_parser.c"
             ]
         }
     ],
