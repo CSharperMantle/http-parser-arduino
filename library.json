@@ -27,7 +27,8 @@
             "http_parser.[ch]",
             "keywords.txt",
             "README.md",
-            "examples/*/*.[ch]"
+            "examples/*/*.[ch]",
+            "LICENSE-MIT"
         ]
     },
     "examples": [
