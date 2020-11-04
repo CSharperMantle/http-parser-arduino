@@ -1,6 +1,11 @@
 HTTP Parser for Arduino
 ===========
 
+> http-parser is [**not** actively maintained](https://github.com/nodejs/http-parser/issues/522).
+> New projects and projects looking to migrate should consider [llhttp](https://github.com/nodejs/llhttp).
+
+Porting of llhttp to Arduino platform is under consideration.
+
 [![Build Status](https://www.travis-ci.com/CSharperMantle/http-parser-arduino.svg?branch=master)](https://www.travis-ci.com/CSharperMantle/http-parser-arduino)
 
 This is a parser for HTTP messages written in C.
